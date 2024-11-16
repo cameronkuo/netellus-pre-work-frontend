@@ -1,6 +1,8 @@
 'use client';
 
-import { Box, Tab, Tabs } from '@mui/material';
+import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
 import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
 
@@ -13,7 +15,10 @@ export default function Navigation() {
     { label: 'Discussion', path: '/community/discussion' },
   ];
 
-  const value = tabs.findIndex(tab => tab.path === pathname);
+  const value = Math.max(
+    tabs.findIndex(tab => pathname.startsWith(tab.path)),
+    0,
+  );
 
   return (
     <nav>
