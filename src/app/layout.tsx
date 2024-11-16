@@ -1,6 +1,10 @@
 import './globals.css';
 
+import { ThemeProvider } from '@mui/material/styles';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import localFont from 'next/font/local';
+
+import theme from './theme';
 
 import type { Metadata } from 'next';
 
@@ -16,7 +20,10 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'NETELLUS',
+  title: {
+    template: '%s | Netellus',
+    default: 'Netellus',
+  },
   description: '',
 };
 
@@ -30,7 +37,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <AppRouterCacheProvider>
+          <ThemeProvider theme={theme}>{children}</ThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );
