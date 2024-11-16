@@ -34,7 +34,6 @@ export default [
       'no-empty': 'error',
       'no-empty-function': 'error',
       'no-lonely-if': 'error',
-      'no-magic-numbers': 'error',
       'no-nested-ternary': 'error',
       'no-var': 'error',
       semi: ['error', 'always'],
