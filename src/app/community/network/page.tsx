@@ -10,7 +10,17 @@ export const metadata: Metadata = {
   title: 'Network',
 };
 
-export default async function Page() {
+export default async function Page(
+  props: Readonly<{
+    searchParams: Promise<{
+      search?: string;
+      page?: string;
+    }>;
+  }>,
+) {
+  const searchParams = await props.searchParams;
+  const search = searchParams.search || '';
+
   return (
     <main className='flex flex-1 gap-5'>
       <section className='flex-1 space-y-5'>
@@ -19,6 +29,7 @@ export default async function Page() {
           <button className='rounded-full p-2'>Explore</button>
         </div>
         <Suspense
+          key={search}
           fallback={Array.from({ length: 10 }).map((_, index) => (
             <PostCardSkeleton key={index} />
           ))}
