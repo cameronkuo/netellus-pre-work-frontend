@@ -19,6 +19,11 @@ export default async function Posts() {
               .subtract(Math.random() * 1000, 'minute')
               .toISOString(),
             content: loremIpsum({ count: 1, units: 'paragraphs' }),
+            commentCount: Math.floor(Math.random() * 100),
+            shareCount: Math.floor(Math.random() * 100),
+            likeCount: Math.floor(Math.random() * 100),
+            liked: Math.random() < 0.5,
+            saved: Math.random() < 0.5,
           })),
         );
       }, 1000);
