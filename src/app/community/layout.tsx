@@ -1,4 +1,7 @@
+import Divider from '@mui/material/Divider';
 import React from 'react';
+
+import dayjs from '@/lib/dayjs';
 
 import Navigation from './components/Navigation';
 import Search from './components/Search';
@@ -29,8 +32,15 @@ export default function Layout({
         <aside className='w-36' />
         {children}
       </div>
-      <footer className='container mx-auto px-5'>
-        <h1>Footer</h1>
+      <footer className='container mx-auto p-5 text-sm'>
+        <Divider>
+          Copyright&nbsp;
+          <sup>
+            <small>&copy;</small>
+          </sup>
+          &nbsp;
+          {dayjs().format('YYYY')} Netellus
+        </Divider>
       </footer>
     </main>
   );
