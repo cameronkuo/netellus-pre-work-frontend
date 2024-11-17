@@ -29,7 +29,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
         }
         defaultValue={searchParams.get('search')?.toString()}
       />
-      <SearchIcon className='absolute left-3 top-1/2 -translate-y-1/2 translate-x-0 rotate-0 skew-x-0 skew-y-0 scale-100 text-gray-400 peer-focus:text-gray-500' />
+      <SearchIcon className='absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 peer-focus:text-gray-500' />
     </div>
   );
 }

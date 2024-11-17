@@ -28,10 +28,7 @@ export default function Layout({
           <Search placeholder='Search' />
         </div>
       </header>
-      <div className='container mx-auto flex gap-5 p-5'>
-        <aside className='w-36' />
-        {children}
-      </div>
+      <div className='container mx-auto flex p-5 pl-40'>{children}</div>
       <footer className='container mx-auto p-5 text-sm'>
         <Divider>
           Copyright&nbsp;

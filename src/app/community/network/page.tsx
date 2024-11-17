@@ -22,11 +22,15 @@ export default async function Page(
   const search = searchParams.search || '';
 
   return (
-    <main className='flex flex-1 gap-5'>
+    <main className='flex flex-1 gap-10'>
       <section className='flex-1 space-y-5'>
         <div className='grid grid-cols-2 gap-5'>
-          <button className='rounded-full p-2'>Following</button>
-          <button className='rounded-full p-2'>Explore</button>
+          <button className='rounded-full bg-gray-100 p-2 text-gray-800'>
+            Following
+          </button>
+          <button className='rounded-full bg-gray-100 p-2 text-gray-800'>
+            Explore
+          </button>
         </div>
         <Suspense
           key={search}

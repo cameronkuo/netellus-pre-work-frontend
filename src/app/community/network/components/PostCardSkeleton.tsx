@@ -17,14 +17,12 @@ export default function PostCardSkeleton() {
         <Skeleton animation='wave' variant='text' width={50} />
       </div>
       <div />
-      <div className='text-sm text-foreground'>
+      <div className='text-sm'>
         <Skeleton animation='wave' variant='text' width='100%' />
         <Skeleton animation='wave' variant='text' width='100%' />
         <Skeleton animation='wave' variant='text' width='50%' />
         <div className='h-4' />
-        <button className='ml-auto block border-none bg-transparent text-foreground'>
-          ...more
-        </button>
+        <button className='ml-auto block'>...more</button>
       </div>
     </div>
   );

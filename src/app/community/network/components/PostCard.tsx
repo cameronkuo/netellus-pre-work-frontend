@@ -12,15 +12,12 @@ function Content(props: { content: string }) {
   };
 
   return (
-    <div className='text-sm text-foreground'>
-      <p className={`overflow-hidden ${collapse ? 'line-clamp-3' : ''} mt-0`}>
+    <div className='text-sm'>
+      <p className={`overflow-hidden ${collapse ? 'line-clamp-3' : ''}`}>
         {props.content}
       </p>
       {collapse && (
-        <button
-          className='ml-auto block border-none bg-transparent text-foreground'
-          onClick={() => toggleCollapse()}
-        >
+        <button className='ml-auto block' onClick={() => toggleCollapse()}>
           ...more
         </button>
       )}
@@ -36,6 +33,11 @@ export default function PostCard(props: {
   };
   createdAt: string;
   content: string;
+  commentCount: number;
+  shareCount: number;
+  likeCount: number;
+  liked: boolean;
+  saved: boolean;
 }) {
   return (
     <div className='grid grid-cols-[auto_1fr] items-center gap-3'>
@@ -45,13 +47,13 @@ export default function PostCard(props: {
         alt={props.user.name}
       />
       <div>
-        <div className='font-medium text-foreground'>{props.user.name}</div>
-        <time className='text-sm text-foreground opacity-60'>
+        <div className='font-medium'>{props.user.name}</div>
+        <time className='text-sm opacity-60'>
           {dayjs(props.createdAt).fromNow()}
         </time>
       </div>
       <div />
-      <div className='text-sm text-foreground'>
+      <div className='text-sm'>
         <Content content={props.content} />
       </div>
     </div>

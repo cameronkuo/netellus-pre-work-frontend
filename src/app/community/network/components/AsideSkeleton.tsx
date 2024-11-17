@@ -4,9 +4,9 @@ export default function Aside() {
   return (
     <div className='space-y-5'>
       <p>People Suggestion</p>
-      <div className='flex gap-4'>
+      <div className='grid grid-cols-3 gap-4'>
         {Array.from({ length: 3 }).map((_, index) => (
-          <div key={index} className='flex w-20 flex-1 flex-col gap-1'>
+          <div key={index} className='flex w-20 flex-col gap-1'>
             <div className='aspect-square'>
               <Skeleton
                 animation='wave'

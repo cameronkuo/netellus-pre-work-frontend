@@ -1,5 +1,32 @@
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-2xl font-bold md:text-3xl;
+  }
+
+  h2 {
+    @apply text-xl font-bold md:text-2xl;
+  }
+
+  h3 {
+    @apply text-lg font-bold md:text-xl;
+  }
+
+  h4 {
+    @apply text-base font-bold md:text-lg;
+  }
+
+  h5 {
+    @apply text-sm font-bold md:text-base;
+  }
+
+  h6 {
+    @apply text-sm font-bold;
+  }
+}
 
 :root {
   --background: #ffffff;
@@ -13,10 +40,6 @@
   }
 }
 
-* {
-  box-sizing: border-box;
-}
-
 body {
   color: var(--foreground);
   background: var(--background);
@@ -27,4 +50,8 @@ body {
 
 button {
   cursor: pointer;
+}
+
+pre {
+  font-family: initial;
 }
