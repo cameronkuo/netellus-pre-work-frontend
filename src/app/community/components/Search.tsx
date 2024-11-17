@@ -22,14 +22,14 @@ export default function Search({ placeholder }: { placeholder: string }) {
         Search
       </label>
       <input
-        className='peer block w-full rounded-full border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500'
+        className='peer block w-full rounded-full border border-gray-300 py-[9px] pl-10 text-sm text-gray-900 outline-2 placeholder:text-gray-500'
         placeholder={placeholder}
         onKeyDown={e =>
           e.key === 'Enter' && handleSearch(e.currentTarget.value)
         }
         defaultValue={searchParams.get('search')?.toString()}
       />
-      <SearchIcon className='absolute left-3 top-1/2 -translate-y-1/2 translate-x-0 rotate-0 skew-x-0 skew-y-0 scale-100 text-gray-400 peer-focus:text-gray-500' />
+      <SearchIcon className='absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 peer-focus:text-gray-600' />
     </div>
   );
 }
