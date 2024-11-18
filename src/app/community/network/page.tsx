@@ -42,7 +42,7 @@ export default async function Page(
         </Suspense>
       </section>
       <aside className='max-lg:hidden'>
-        <Suspense fallback={<AsideSkeleton />}>
+        <Suspense key={search} fallback={<AsideSkeleton />}>
           <Aside />
         </Suspense>
       </aside>
