@@ -1,13 +1,31 @@
+'use client';
+
 import { Box, Stack, Typography } from '@mui/material';
 import Link from 'next/link';
 import React from 'react';
 
+import AuthModal from '@/components/AuthModal';
+import RegisterModal from '@/components/RegisterModal';
+
 export default function Home() {
+  const [shouldShowAuthModal, setShouldShowAuthModal] = React.useState(false);
+  const [shouldShowRegisterModal, setShouldShowRegisterModal] =
+    React.useState(false);
+
   const navLinks = [
     { href: '/our-story', label: 'Our Story' },
     { href: '/membership', label: 'Membership' },
-    { href: '/signup', label: 'Sign Up' },
-    { href: '/get-started', label: 'Get Started', isButton: true },
+    {
+      href: '#',
+      label: 'Sign Up',
+      onClick: () => setShouldShowRegisterModal(true),
+    },
+    {
+      href: '#',
+      label: 'Get Started',
+      isButton: true,
+      onClick: () => setShouldShowAuthModal(true),
+    },
   ];
 
   const footerLinks = [
@@ -36,7 +54,16 @@ export default function Home() {
           gap={5}
         >
           {navLinks.map(link => (
-            <Link key={link.href} href={link.href}>
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={e => {
+                if (link.onClick) {
+                  e.preventDefault();
+                  link.onClick();
+                }
+              }}
+            >
               <p
                 className={
                   link.isButton
@@ -82,6 +109,14 @@ export default function Home() {
           </Link>
         ))}
       </Stack>
+      <AuthModal
+        open={shouldShowAuthModal}
+        handleClose={() => setShouldShowAuthModal(false)}
+      />
+      <RegisterModal
+        open={shouldShowRegisterModal}
+        handleClose={() => setShouldShowRegisterModal(false)}
+      />
     </Box>
   );
 }
