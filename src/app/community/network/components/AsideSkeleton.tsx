@@ -1,8 +1,8 @@
 import Skeleton from '@mui/material/Skeleton';
 
-export default function AsideSkeleton() {
+export default function Aside() {
   return (
-    <aside className='space-y-5'>
+    <div className='space-y-5'>
       <p>People Suggestion</p>
       <div className='grid grid-cols-3 gap-4'>
         {Array.from({ length: 3 }).map((_, index) => (
@@ -50,6 +50,6 @@ export default function AsideSkeleton() {
           </div>
         </div>
       ))}
-    </aside>
+    </div>
   );
 }

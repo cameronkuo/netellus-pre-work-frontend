@@ -1,7 +1,7 @@
 export default async function Aside() {
   await new Promise(resolve => setTimeout(resolve, 5000));
   return (
-    <aside className='space-y-5'>
+    <div className='space-y-5'>
       <p>People Suggestion</p>
       <div className='grid grid-cols-3 gap-4'>
         {Array.from({ length: 3 }).map((_, index) => (
@@ -32,6 +32,6 @@ export default async function Aside() {
           </div>
         </div>
       ))}
-    </aside>
+    </div>
   );
 }
