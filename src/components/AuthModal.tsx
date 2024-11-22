@@ -1,11 +1,19 @@
 'use client';
 
 import AppleIcon from '@mui/icons-material/Apple';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import { Modal, Box, Typography, Stack, Button } from '@mui/material';
-import { useState } from 'react';
+import {
+  Modal,
+  Box,
+  Typography,
+  Stack,
+  Button,
+  IconButton,
+} from '@mui/material';
+import { useEffect, useState } from 'react';
 
 import LoginForm from '@/components/LoginForm';
 import RegisterForm from '@/components/RegisterForm';
@@ -18,6 +26,11 @@ type AuthModalProps = {
 const AuthModal = (props: AuthModalProps) => {
   const [showRegisterForm, setShowRegisterForm] = useState(false);
   const [showLoginForm, setShowLoginForm] = useState(false);
+
+  useEffect(() => {
+    if (props.open) setShowLoginForm(false);
+  }, [props.open]);
+
   return (
     <Modal open={props.open} onClose={props.handleClose}>
       <Box
@@ -36,6 +49,14 @@ const AuthModal = (props: AuthModalProps) => {
         <Typography variant='h4' component='h2' gutterBottom align='center'>
           Netellus
         </Typography>
+        {showLoginForm && (
+          <IconButton
+            onClick={() => setShowLoginForm(false)}
+            sx={{ position: 'absolute', top: 32, left: 32 }}
+          >
+            <ArrowBackIcon />
+          </IconButton>
+        )}
         {!showRegisterForm && !showLoginForm && (
           <>
             <Stack spacing={2} sx={{ mt: 4 }}>

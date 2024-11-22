@@ -16,12 +16,12 @@ export default function Home() {
     { href: '/our-story', label: 'Our Story' },
     { href: '/membership', label: 'Membership' },
     {
-      href: '#',
+      href: 'sign-up',
       label: 'Sign Up',
       onClick: () => setShouldShowRegisterModal(true),
     },
     {
-      href: '#',
+      href: 'get-started',
       label: 'Get Started',
       isButton: true,
       onClick: () => setShouldShowAuthModal(true),

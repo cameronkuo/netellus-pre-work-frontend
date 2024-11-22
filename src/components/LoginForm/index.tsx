@@ -5,17 +5,28 @@ import { FormProvider } from 'react-hook-form';
 import { EmailField } from '@/components/LoginForm/Fields/EmailField';
 import { PasswordField } from '@/components/LoginForm/Fields/PasswordField';
 import { SubmitButton } from '@/components/LoginForm/SubmitButton';
-import { useLoginForm } from '@/components/LoginForm/useFormSchema';
+import {
+  LoginFormParams,
+  useLoginForm,
+} from '@/components/LoginForm/useFormSchema';
 
 export default function LoginForm() {
   const form = useLoginForm();
+
+  const handleSubmit = (data: LoginFormParams) => {
+    // TODO: handle post register here
+    window.console.log(data);
+  };
+
   return (
     <FormProvider {...form}>
-      <Stack spacing={3} sx={{ minHeight: 210, mt: 4 }}>
-        <EmailField />
-        <PasswordField />
-        <SubmitButton />
-      </Stack>
+      <form onSubmit={form.handleSubmit(handleSubmit)}>
+        <Stack spacing={3} sx={{ minHeight: 210, mt: 4 }}>
+          <EmailField />
+          <PasswordField />
+          <SubmitButton />
+        </Stack>
+      </form>
     </FormProvider>
   );
 }
